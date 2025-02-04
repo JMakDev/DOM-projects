@@ -3,23 +3,57 @@
 
 <head>
     <title>DOM</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .tube {
+            color: white;
+            background-color: black;
+            padding: 10px 15px 10px 15px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 80px;
+        }
+
+        .isSubscribed {
+            background-color: rgb(240, 240, 240);
+            color: black;
+            font-weight: bold;
+        }
+
+        .cost-input {
+            padding: 10px;
+        }
+
+        .calcElem {
+            padding: 10px 15px;
+            background-color: green;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
 
     <p>Youtube Subscribe Button</p>
-    <button class="js-subscribe" onclick="
+    <button class="js-subscribe tube" onclick="
         Subscribe();
     ">Subscribe</button>
 
 
 
     <p>Amazon Shipping Calculator</p>
-    <input type="text" placeholder="Cost of order" class="js-input" onkeydown="
+    <input type="text" placeholder="Cost of order" class="js-input cost-input" onkeydown="
         handleKeydown(event)
     ">
 
-    <button onclick="
+    <button class="calcElem" onclick="
         calculateTotal();
     ">Calculate</button>
 
@@ -55,8 +89,10 @@
 
             if (buttonElem.innerHTML === 'Subscribe') {
                 buttonElem.innerHTML = 'Subscribed'
+                buttonElem.classList.add('isSubscribed')
             } else {
                 buttonElem.innerHTML = 'Subscribe'
+                buttonElem.classList.remove('isSubscribed')
             }
         };
     </script>
